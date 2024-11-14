@@ -1,0 +1,72 @@
+<!-- Q.1) Write an AngularJS script to print details of Employee (employee name, employee 
+Id,Pin code, address etc.) in tabular form using ng-repeat.    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Employee Details</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <style>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 8px;
+      text-align: left;
+    }
+  </style>
+</head>
+<body ng-app="employeeApp" ng-controller="employeeCtrl">
+
+  <h1>Employee Details</h1>
+
+  <!-- Employee Table -->
+  <table>
+    <thead>
+      <tr>
+        <th>Employee ID</th>
+        <th>Name</th>
+        <th>Pin Code</th>
+        <th>Address</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="employee in employees">
+        <td>{{ employee.id }}</td>
+        <td>{{ employee.name }}</td>
+        <td>{{ employee.pinCode }}</td>
+        <td>{{ employee.address }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <script>
+    // AngularJS application
+    var app = angular.module('employeeApp', []);
+
+    // Controller for employee data
+    app.controller('employeeCtrl', function($scope) {
+      // Employee data
+      $scope.employees = [
+        { id: 101, name: 'John Doe', pinCode: '12345', address: '123 Main St, Cityville' },
+        { id: 102, name: 'Jane Smith', pinCode: '67890', address: '456 Oak St, Townville' },
+        { id: 103, name: 'Bob Johnson', pinCode: '11223', address: '789 Pine St, Villageville' },
+        { id: 104, name: 'Alice Williams', pinCode: '44556', address: '101 Maple St, Countryville' }
+      ];
+    });
+  </script>
+
+</body>
+</html>
+
+<!-- _________________________________
+
+How to Run
+
+save html extention run on brower -->

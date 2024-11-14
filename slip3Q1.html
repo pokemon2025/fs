@@ -1,0 +1,51 @@
+<!-- Q.1) Write an AngularJS script to display list of games stored in an array on click of 
+button using ng-click and also demonstrate ng-init, ng-bind directive of AngularJS.  -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game List</title>
+  <!-- Include AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-app="gameApp" ng-controller="gameCtrl">
+
+  <!-- ng-init to initialize games array -->
+  <div ng-init="games = ['Soccer', 'Basketball', 'Tennis', 'Cricket', 'Baseball']; showGames = false;">
+
+    <!-- Button to display the list of games -->
+    <button ng-click="showGames = !showGames">
+      {{ showGames ? 'Hide' : 'Show' }} Game List
+    </button>
+
+    <!-- ng-bind to bind the display message -->
+    <p ng-bind="showGames ? 'Here are the available games:' : 'Click the button to see the games.'"></p>
+
+    <!-- List of games displayed when showGames is true -->
+    <ul ng-show="showGames">
+      <li ng-repeat="game in games">{{ game }}</li>
+    </ul>
+  </div>
+
+  <!-- AngularJS Script -->
+  <script>
+    // Declare the AngularJS application
+    var app = angular.module('gameApp', []);
+
+    // Create a controller for the app
+    app.controller('gameCtrl', function($scope) {
+      // The game list and showGames are initialized in the HTML ng-init directive.
+    });
+  </script>
+
+</body>
+</html>
+
+
+<!-- _________________________________________________
+how to run
+save in html -->

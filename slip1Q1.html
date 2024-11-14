@@ -1,0 +1,51 @@
+<!-- Q.1) Write an AngularJS script for addition of two numbers using ng-init, ng-model & 
+ng-bind. And also demonstrate ng-show, ng-disabled, ng-click directives on button 
+component.  -->
+
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS Addition App</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        .result {
+            font-size: 1.2em;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+<body ng-init="num1=0; num2=0; showResult=false">
+
+    <h1>Simple Addition App in AngularJS</h1>
+    
+    <label>Number 1:
+        <input type="number" ng-model="num1">
+    </label>
+    
+    <label>Number 2:
+        <input type="number" ng-model="num2">
+    </label>
+    
+    <button 
+        ng-click="sum = num1 + num2; showResult=true" 
+        ng-disabled="!num1 && !num2"
+        ng-show="true">
+        Add Numbers
+    </button>
+    
+    <div ng-show="showResult" class="result">
+        Result: <span ng-bind="sum"></span>
+    </div>
+
+</body>
+</html>
+
+<!-- ________
+How to run 
+
+<!save in html --> 

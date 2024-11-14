@@ -1,0 +1,74 @@
+<!-- Q.1) Write an AngularJS script to print details of bank (bank name, MICR code, IFC 
+code, address etc.) in tabular form using ng-repeat. -->
+
+
+
+<!DOCTYPE html>
+<html lang="en" ng-app="bankApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bank Details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+    </style>
+</head>
+<body ng-controller="BankController">
+
+    <h1>Bank Details</h1>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Bank Name</th>
+                <th>MICR Code</th>
+                <th>IFSC Code</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="bank in banks">
+                <td>{{ bank.name }}</td>
+                <td>{{ bank.micr }}</td>
+                <td>{{ bank.ifsc }}</td>
+                <td>{{ bank.address }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        // Define the AngularJS application module
+        const app = angular.module('bankApp', []);
+
+        // Define the controller and data
+        app.controller('BankController', function($scope) {
+            // Sample data for banks
+            $scope.banks = [
+                { name: 'Bank of Baroda', micr: '111111', ifsc: 'BOFA0001234', address: 'MIT Colony,Pune' },
+                { name: 'State Bank of India', micr: '222222', ifsc: 'CHASE0005678', address: 'Ananad Nagar,Pune' },
+                { name: 'Bank of Maharashtra', micr: '333333', ifsc: 'WF0008765', address: 'Bhusari Colony ,Pune' },
+                { name: 'India overseas Bank', micr: '444444', ifsc: 'CITI0004321', address: 'MG Road,Pune' }
+            ];
+        });
+    </script>
+
+</body>
+</html>
+
+
+
+<!-- _________________________________________________
+how to run
+save in html -->

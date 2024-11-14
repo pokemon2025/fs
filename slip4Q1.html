@@ -1,0 +1,56 @@
+<!-- Fetch the details using ng-repeat in AngularJS -->
+ 
+
+<!DOCTYPE html>
+<html lang="en" ng-app="bookApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS ng-repeat Example - Book List</title>
+    <!-- Include AngularJS from a CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body ng-controller="BookController">
+
+    <h2>Book List</h2>
+
+    <!-- Table to display book details -->
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Year</th>
+        </tr>
+        <!-- Using ng-repeat to display each book in the array -->
+        <tr ng-repeat="book in books">
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.year }}</td>
+        </tr>
+    </table>
+
+    <!-- AngularJS Script -->
+    <script>
+        // Define the AngularJS application
+        var app = angular.module('bookApp', []);
+
+        // Define the controller for the application
+        app.controller('BookController', function($scope) {
+            // Initialize an array of books
+            $scope.books = [
+                { title: 'To Kill a Mockingbird', author: 'Harper Lee', year: 1960 },
+                { title: '1984', author: 'George Orwell', year: 1949 },
+                { title: 'Moby Dick', author: 'Herman Melville', year: 1851 },
+                { title: 'The Great Gatsby', author: 'F. Scott Fitzgerald', year: 1925 },
+                { title: 'Pride and Prejudice', author: 'Jane Austen', year: 1813 }
+            ];
+        });
+    </script>
+</body>
+</html>
+
+
+______________________
+How to run:
+
+???save in html???
